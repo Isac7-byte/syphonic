@@ -1,0 +1,235 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Audeb511",
+      "preco": 1999.30,
+      "descricao": "Baixo elétrico de alto desempenho com captadores ativos, corpo em alder e braço em maple. Ideal para músicos que buscam versatilidade de som e excelente resposta dinâmica.",
+      "imagem": "https://i.pinimg.com/1200x/77/e3/9d/77e39d801ae097088b4b7c80993b000b.jpg",
+      "parcelamento": "ou 10x de R$ 199,93 sem juros\nR$ 1.799,37 à vista",
+      "promocaoSemanal": true,
+      "desconto": 20,
+      "categoria": "cordas"
+    },
+    {
+      "id": 2,
+      "nome": "Violão Giannini Acústico Nylon Nk (36\") Infantil 3/4 Preto",
+      "preco": 666.61,
+      "descricao": "Violão acústico infantil tamanho 3/4, ideal para crianças iniciantes. Cordas de nylon para maior conforto nos dedos, corpo em tília e tampo sólido.",
+      "imagem": "https://i.pinimg.com/736x/23/b4/a9/23b4a9a61873dc9329d343265e0d4f76.jpg",
+      "parcelamento": "ou 6x de R$ 111,10 sem juros\nR$ 599,95 à vista",
+      "promocaoSemanal": true,
+      "desconto": 15,
+      "categoria": "cordas"
+    },
+    {
+      "id": 3,
+      "nome": "Bateria Acústica Pearl Vision Birch VB925SP 5 Peças - Wine Red",
+      "preco": 4993.20,
+      "descricao": "Bateria acústica profissional Pearl Vision com 5 peças em madeira birch. Acabamento Wine Red metálico, peles Remo incluídas e ferragens resistentes de alto padrão.",
+      "imagem": "https://i.pinimg.com/736x/59/d4/89/59d4898dce4300db6643bae847e05397.jpg",
+      "parcelamento": "ou 12x de R$ 416,10 sem juros\nR$ 4.493,88 à vista",
+      "promocaoSemanal": true,
+      "desconto": 5,
+      "categoria": "bateria"
+    },
+    {
+      "id": 4,
+      "nome": "Guitarra Stratocaster Winner Wgs Preta",
+      "preco": 789.99,
+      "descricao": "Guitarra elétrica estilo Stratocaster com corpo em tília, braço em maple e escala em pau ferro. 3 captadores single coil, ponte vintage e controles de volume e tom.",
+      "imagem": "https://i.pinimg.com/736x/98/7f/4a/987f4a348f5d4d6ee0b471b02312a3b3.jpg",
+      "parcelamento": "ou 8x de R$ 98,75 sem juros\nR$ 710,99 à vista",
+      "promocaoSemanal": true,
+      "desconto": 10,
+      "categoria": "cordas"
+    },
+    {
+      "id": 5,
+      "nome": "Tagima Baixo Elétrico Jazz Passivo Tm 73 5 Cordas Dourado Preto",
+      "preco": 1922.55,
+      "descricao": "Baixo elétrico de 5 cordas estilo Jazz Bass com captadores passivos de alta qualidade. Corpo em alder, braço em maple e escala em pau ferro. Acabamento dourado e preto.",
+      "imagem": "https://i.pinimg.com/736x/dc/90/73/dc9073c95f32287d67647a282ba4ee61.jpg",
+      "parcelamento": "ou 10x de R$ 192,26 sem juros\nR$ 1.730,30 à vista",
+      "promocaoSemanal": true,
+      "desconto": 20,
+      "categoria": "cordas"
+    },
+    {
+      "id": 6,
+      "nome": "AT2020 - Microfone Condensador Audio-Technica",
+      "preco": 780.00,
+      "descricao": "Microfone condensador cardióide AT2020 da Audio-Technica. Padrão polar cardióide, resposta de frequência 20Hz–20kHz, ideal para gravações vocais e instrumentos acústicos em estúdio.",
+      "imagem": "https://i.pinimg.com/736x/0c/a3/9b/0ca39bafa1c8fefb2b59b36adf7ec9e4.jpg",
+      "parcelamento": "ou 8x de R$ 97,50 sem juros\nR$ 702,00 à vista",
+      "promocaoSemanal": false,
+      "desconto": 0,
+      "categoria": "audio"
+    },
+    {
+      "id": 7,
+      "nome": "Edifier M60 Multimedia Speaker Bluetooth",
+      "preco": 380.98,
+      "descricao": "Caixa de som multimídia Edifier M60 com conectividade Bluetooth 5.0. Potência de 16W RMS, graves encorpados, design compacto e elegante para home studio ou uso pessoal.",
+      "imagem": "https://i.pinimg.com/1200x/21/73/df/2173dfed3f0dcfc8b76c2c33f0dbe775.jpg",
+      "parcelamento": "ou 4x de R$ 95,25 sem juros\nR$ 342,88 à vista",
+      "promocaoSemanal": false,
+      "desconto": 0,
+      "categoria": "audio"
+    },
+    {
+      "id": 8,
+      "nome": "Audio-Technica ATH-M50 Monitor Headphones",
+      "preco": 270.99,
+      "descricao": "Fone de ouvido profissional de referência ATH-M50 com drivers de 45mm e neodímio. Resposta de frequência 15Hz–28kHz, dobrável, ideal para monitoramento em estúdio.",
+      "imagem": "https://i.pinimg.com/1200x/7c/c3/c3/7cc3c3d770cca7b7b837c49f6a3daac8.jpg",
+      "parcelamento": "ou 3x de R$ 90,33 sem juros\nR$ 243,89 à vista",
+      "promocaoSemanal": false,
+      "desconto": 0,
+      "categoria": "fones"
+    },
+    {
+      "id": 9,
+      "nome": "Focusrite Scarlett 2i2 2 In/2 Out USB Recording Audio Interface",
+      "preco": 789.99,
+      "descricao": "Interface de áudio USB Focusrite Scarlett 2i2 com 2 entradas e 2 saídas. Pré-amplificadores de alta qualidade, conversores de 24-bit/192kHz e compatível com Mac e Windows.",
+      "imagem": "https://i.pinimg.com/736x/ce/ce/5c/cece5ca870894cbe7ab800ddd83d951e.jpg",
+      "parcelamento": "ou 8x de R$ 98,75 sem juros\nR$ 710,99 à vista",
+      "promocaoSemanal": false,
+      "desconto": 0,
+      "categoria": "audio"
+    },
+    {
+      "id": 10,
+      "nome": "TECHBLAZE Condenser Microphone Recording",
+      "preco": 1700.55,
+      "descricao": "Microfone condensador de estúdio de grande diafragma para gravação profissional. Padrão polar cardióide, filtro passa-alta e pad de atenuação -10dB incluídos. Resposta plana e detalhada.",
+      "imagem": "https://i.pinimg.com/736x/82/f8/87/82f887d049b08e67555f17930d48cadd.jpg",
+      "parcelamento": "ou 10x de R$ 170,06 sem juros\nR$ 1.530,50 à vista",
+      "promocaoSemanal": false,
+      "desconto": 0,
+      "categoria": "audio"
+    },
+    {
+      "id": 11,
+      "nome": "Mesa de Som 16 Canais Arcano AM-KLESHA-16 Bluetooth USB Efeitos 32 Bits",
+      "preco": 1922.55,
+      "descricao": "Mesa de som 16 canais com Bluetooth, USB e efeitos digitais internos de 32 bits. EQ de 3 bandas por canal, phantom power, saídas XLR balanceadas e interface de gravação.",
+      "imagem": "https://i.pinimg.com/736x/f1/d4/4a/f1d44ad24a1a129932f34252b94210ff.jpg",
+      "parcelamento": "ou 10x de R$ 192,26 sem juros\nR$ 1.730,30 à vista",
+      "promocaoSemanal": false,
+      "desconto": 0,
+      "categoria": "mesa"
+    },
+    {
+      "id": 12,
+      "nome": "Fones de Ouvido Beyerdynamic DT 990 Pro 250 Ohm - Over-Ear para Estúdio",
+      "preco": 499.99,
+      "descricao": "Fone de ouvido aberto profissional Beyerdynamic DT 990 Pro, 250 Ohm. Resposta de frequência 5Hz–35kHz, almofadas de veludo, suporte de metal dobrável e cabo espiralado.",
+      "imagem": "https://i.pinimg.com/1200x/99/e3/cf/99e3cf7dc5a70d31488d7971690ec496.jpg",
+      "parcelamento": "ou 5x de R$ 100,00 sem juros\nR$ 449,99 à vista",
+      "promocaoSemanal": false,
+      "desconto": 0,
+      "categoria": "fones"
+    },
+    {
+      "id": 13,
+      "nome": "Par De Monitor Referência Para Estúdio 95w Rms Hs7 Yamaha",
+      "preco": 899.99,
+      "descricao": "Par de monitores de referência Yamaha HS7 com 6,5\" woofer e tweeter de 1\". Potência de 95W RMS por par, bi-amplificado, resposta 43Hz–30kHz, controles de room control e high trim.",
+      "imagem": "https://i.pinimg.com/736x/48/e0/ae/48e0ae9f0ebce28305c7796e2452adc7.jpg",
+      "parcelamento": "ou 9x de R$ 100,00 sem juros\nR$ 809,99 à vista",
+      "promocaoSemanal": false,
+      "desconto": 0,
+      "categoria": "audio"
+    },
+    {
+      "id": 14,
+      "nome": "Ingresso Show Osamason - Orlando, FL",
+      "preco": 250.00,
+      "descricao": "Ingresso para o show de Osamason em Orlando, FL. Entrada geral com acesso à área de shows.",
+      "imagem": "https://i.pinimg.com/736x/be/a0/f2/bea0f2d04f5f3f05c14ab3e174778e2d.jpg",
+      "parcelamento": "ou 2x de R$ 125,00 sem juros\nR$ 225,00 à vista",
+      "promocaoSemanal": false,
+      "desconto": 0,
+      "categoria": "ingresso"
+    },
+    {
+      "id": 15,
+      "nome": "Ingresso Show Chief Keef - Orlando, FL",
+      "preco": 320.00,
+      "descricao": "Ingresso para o show de Chief Keef em Orlando, FL. Entrada geral.",
+      "imagem": "https://i.pinimg.com/1200x/4d/46/4c/4d464cc870423d810125d966e9341be1.jpg",
+      "parcelamento": "ou 3x de R$ 106,67 sem juros\nR$ 288,00 à vista",
+      "promocaoSemanal": false,
+      "desconto": 0,
+      "categoria": "ingresso"
+    },
+    {
+      "id": 16,
+      "nome": "Ingresso Show Sabrina Carpenter - Índio, CA",
+      "preco": 480.00,
+      "descricao": "Ingresso para o show de Sabrina Carpenter em Índio, CA. Entrada VIP com área reservada.",
+      "imagem": "https://i.pinimg.com/736x/4a/9e/79/4a9e79b21ff80abb037cd717625ce180.jpg",
+      "parcelamento": "ou 4x de R$ 120,00 sem juros\nR$ 432,00 à vista",
+      "promocaoSemanal": false,
+      "desconto": 0,
+      "categoria": "ingresso"
+    },
+    {
+      "id": 17,
+      "nome": "Bateria Eletrônica Roland TD-07DMK",
+      "preco": 3299.00,
+      "descricao": "Bateria eletrônica Roland TD-07DMK com módulo TD-07, pads de malha para bumbo e caixas, compatível com aplicativos de treino e prática silenciosa.",
+      "imagem": "https://i.pinimg.com/736x/59/d4/89/59d4898dce4300db6643bae847e05397.jpg",
+      "parcelamento": "ou 12x de R$ 274,92 sem juros\nR$ 2.969,10 à vista",
+      "promocaoSemanal": false,
+      "desconto": 0,
+      "categoria": "bateria"
+    },
+    {
+      "id": 18,
+      "nome": "Bumbo Pearl Session Studio Classic 22\"",
+      "preco": 1450.00,
+      "descricao": "Bumbo Pearl Session Studio Classic 22\" em maple com acabamento lacado. Inclui aro de madeira reforçado e pele Remo Ambassador.",
+      "imagem": "https://i.pinimg.com/736x/59/d4/89/59d4898dce4300db6643bae847e05397.jpg",
+      "parcelamento": "ou 10x de R$ 145,00 sem juros\nR$ 1.305,00 à vista",
+      "promocaoSemanal": false,
+      "desconto": 0,
+      "categoria": "bateria"
+    },
+    {
+      "id": 19,
+      "nome": "Mesa de Som Yamaha MG10XU 10 Canais",
+      "preco": 1100.00,
+      "descricao": "Mesa de som Yamaha MG10XU com 10 canais, interface USB, efeitos SPX integrados, 4 pré-amplificadores D-PRE e saídas balanceadas.",
+      "imagem": "https://i.pinimg.com/736x/f1/d4/4a/f1d44ad24a1a129932f34252b94210ff.jpg",
+      "parcelamento": "ou 10x de R$ 110,00 sem juros\nR$ 990,00 à vista",
+      "promocaoSemanal": false,
+      "desconto": 0,
+      "categoria": "mesa"
+    },
+    {
+      "id": 20,
+      "nome": "Mesa Behringer X32 Digital",
+      "preco": 8900.00,
+      "descricao": "Console digital Behringer X32 com 32 canais, 16 pré-amplificadores MIDAS, interface USB ASIO, 25 processadores de efeitos e suporte para controle remoto via iPad.",
+      "imagem": "https://i.pinimg.com/736x/f1/d4/4a/f1d44ad24a1a129932f34252b94210ff.jpg",
+      "parcelamento": "ou 12x de R$ 741,67 sem juros\nR$ 8.010,00 à vista",
+      "promocaoSemanal": false,
+      "desconto": 0,
+      "categoria": "mesa"
+    },
+    {
+      "id": 21,
+      "nome": "Fone JBL Tune 760NC Bluetooth",
+      "preco": 399.00,
+      "descricao": "Fone de ouvido JBL Tune 760NC com cancelamento ativo de ruído, conexão Bluetooth 5.0, até 35h de bateria e drivers de 40mm para som JBL Pure Bass.",
+      "imagem": "https://i.pinimg.com/1200x/7c/c3/c3/7cc3c3d770cca7b7b837c49f6a3daac8.jpg",
+      "parcelamento": "ou 6x de R$ 66,50 sem juros\nR$ 359,10 à vista",
+      "promocaoSemanal": false,
+      "desconto": 0,
+      "categoria": "fones"
+    }
+  ]
+}

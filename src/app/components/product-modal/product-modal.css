@@ -1,0 +1,134 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-content {
+  background: #1e1e2e;
+  border: 1px solid rgba(200, 120, 58, 0.3);
+  border-radius: 16px;
+  max-width: 650px;
+  width: 90%;
+  position: relative;
+  animation: modalSlideIn 0.35s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+@keyframes modalSlideIn {
+  from { transform: translateY(30px) scale(0.95); opacity: 0; }
+  to   { transform: translateY(0)     scale(1);   opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px; right: 16px;
+  background: none; border: none;
+  color: #aaa; font-size: 28px;
+  cursor: pointer; transition: color 0.2s; z-index: 10;
+}
+.modal-close:hover { color: #c8783a; }
+
+.modal-body {
+  display: flex;
+  gap: 24px;
+  padding: 30px;
+}
+
+.modal-img {
+  flex: 0 0 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+.modal-img img { width: 100%; height: 100%; object-fit: contain; }
+
+.modal-info {
+  flex: 1;
+  display: flex; flex-direction: column; gap: 12px;
+}
+
+.modal-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.3rem; font-weight: 600;
+  color: #fff; margin: 0; line-height: 1.3;
+}
+
+.modal-desc {
+  font-size: 0.82rem;
+  color: #bbb;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.modal-price {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.6rem; font-weight: 700;
+  color: #c8783a; margin: 0;
+}
+
+.modal-discount-badge {
+  display: inline-block;
+  background: #e03535;
+  color: #fff;
+  font-size: 0.75rem; font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.modal-installment {
+  font-size: 0.8rem; color: #aaa;
+  line-height: 1.5; white-space: pre-line; margin: 0;
+}
+
+.modal-qty {
+  display: flex; align-items: center; gap: 14px; margin-top: 8px;
+}
+.modal-qty label { font-size: 0.85rem; color: #ccc; }
+
+.qty-controls {
+  display: flex; align-items: center;
+  border: 1px solid rgba(200, 120, 58, 0.4);
+  border-radius: 8px; overflow: hidden;
+}
+
+.qty-btn {
+  width: 36px; height: 36px;
+  background: rgba(200, 120, 58, 0.15);
+  border: none; color: #c8783a;
+  font-size: 1.1rem; font-weight: 700;
+  cursor: pointer; transition: background 0.2s;
+}
+.qty-btn:hover { background: rgba(200, 120, 58, 0.35); }
+
+.qty-controls span {
+  width: 40px; text-align: center;
+  font-size: 1rem; font-weight: 600;
+  color: #fff; background: transparent;
+}
+
+.modal-add-cart {
+  margin-top: 12px; padding: 14px 24px;
+  background: linear-gradient(135deg, #c8783a, #e0923e);
+  border: none; border-radius: 10px;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem; font-weight: 600;
+  letter-spacing: 0.04em; cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.modal-add-cart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 120, 58, 0.4);
+}
+
+@media (max-width: 600px) {
+  .modal-body { flex-direction: column; padding: 20px; }
+  .modal-img { flex: none; height: 200px; }
+}

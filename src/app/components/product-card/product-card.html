@@ -1,0 +1,14 @@
+<div class="product-card" (click)="openModal()">
+  <div class="image-container">
+    @if (product.promocaoSemanal && product.desconto > 0) {
+      <span class="discount-badge">-{{ product.desconto }}%</span>
+    }
+    <img [src]="product.imagem" [alt]="product.nome" loading="lazy">
+  </div>
+  <div class="product-info">
+    <p class="product-name">{{ product.nome }}</p>
+    <p class="product-price">{{ product.preco | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</p>
+    <p class="product-installments">{{ product.parcelamento }}</p>
+    <button class="buy-btn" (click)="addToCart($event)">comprar</button>
+  </div>
+</div>

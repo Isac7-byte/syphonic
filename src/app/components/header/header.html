@@ -1,0 +1,35 @@
+<header id="main-header">
+  <div class="top-bar" id="top-bar">
+    <div class="logo" id="logo">
+      <img id="logo-img" src="assets/logo-symphonic.png" alt="Symphonic Logo">
+    </div>
+
+    <div class="search-container" id="search-container">
+      <input type="text" placeholder="Buscar..." id="search-input">
+      <button class="search-btn" id="search-btn">🔍</button>
+    </div>
+
+    <div class="user-actions" id="user-actions">
+      <div class="action-item" id="atendimento-btn">
+        <span id="atendimento-text">💬 Central de atendimento</span>
+      </div>
+      <div class="action-item" id="login-btn">
+        <span id="login-text">👤 Bem vindo(a)<br>Entrar ou Cadastrar</span>
+      </div>
+      <div class="cart" id="cart-btn" (click)="openCart()" style="cursor:pointer;">
+        <span id="cart-count">🛒 {{ cartService.totalQty() }}</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottom-nav" id="nav-categorias">
+    <ul id="nav-lista">
+      <li id="nav-ingresso"><a href="#ingresso-section">Ingressos</a></li>
+      <li id="nav-cordas"><a href="#cordas-section">Cordas</a></li>
+      <li id="nav-audio"><a href="#audio-section">Áudio</a></li>
+      <li id="nav-mesa"><a href="#mesa-section">Mesa</a></li>
+      <li id="nav-fones"><a href="#fones-section">Fones</a></li>
+      <li id="nav-bateria"><a href="#bateria-section">Bateria</a></li>
+    </ul>
+  </nav>
+</header>

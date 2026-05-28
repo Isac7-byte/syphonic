@@ -1,0 +1,73 @@
+<div class="cart-overlay" [class.open]="sidebarService.isOpen()" (click)="close()"></div>
+
+<div class="cart-sidebar" [class.open]="sidebarService.isOpen()">
+  <div class="cart-header">
+    <h2>🛒 Meu Carrinho</h2>
+    <button class="cart-close" (click)="close()">&times;</button>
+  </div>
+
+  @if (cartService.items().length === 0) {
+    <div class="cart-items">
+      <p class="cart-empty">Seu carrinho está vazio 🛒</p>
+    </div>
+  } @else {
+    <div class="cart-items">
+      @for (item of cartService.items(); track item.id; let idx = $index) {
+        <div class="cart-item">
+          <img [src]="item.img" [alt]="item.name" class="cart-item-img">
+          <div class="cart-item-info">
+            <p class="cart-item-name">{{ item.name }}</p>
+            <p class="cart-item-price">{{ item.price | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</p>
+            <div class="cart-item-qty-row">
+              <button class="cart-qty-btn" (click)="updateQty(item.id, -1)">−</button>
+              <span class="cart-qty-val">{{ item.qty }}</span>
+              <button class="cart-qty-btn" (click)="updateQty(item.id, +1)">+</button>
+            </div>
+            <p class="cart-item-subtotal">{{ item.price * item.qty | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</p>
+          </div>
+          <button class="cart-item-remove" (click)="removeItem(item.id)" title="Remover">✕</button>
+        </div>
+      }
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Total de itens:</span>
+        <span>{{ cartService.totalQty() }}</span>
+      </div>
+      <div class="cart-total-row cart-total-price">
+        <span>Total:</span>
+        <span>{{ cartService.totalPrice() | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</span>
+      </div>
+      <button class="cart-checkout-btn" (click)="checkout()">Finalizar Compra</button>
+      <button class="cart-clear-btn" (click)="clearCart()">Limpar Carrinho</button>
+    </div>
+  }
+</div>
+
+<!-- Modal de checkout -->
+@if (checkoutOpen) {
+<div class="modal-overlay open" (click)="onCheckoutOverlay($event)">
+  <div class="modal-content checkout-content">
+    <button class="modal-close" (click)="closeCheckout()">&times;</button>
+    <div class="checkout-body">
+      <div class="checkout-icon">✅</div>
+      <h2>Resumo do Pedido</h2>
+      <div class="checkout-items-list">
+        @for (item of checkoutSnapshot; track item.id) {
+          <div class="checkout-item-row">
+            <span class="checkout-item-name">{{ item.name }}</span>
+            <span class="checkout-item-detail">{{ item.qty }}x {{ item.price | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</span>
+            <span class="checkout-item-sub">{{ item.price * item.qty | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</span>
+          </div>
+        }
+      </div>
+      <div class="checkout-total">
+        <span>Total Final:</span>
+        <span>{{ checkoutTotal | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</span>
+      </div>
+      <button class="modal-add-cart checkout-confirm" (click)="confirmPurchase()">Confirmar Compra</button>
+    </div>
+  </div>
+</div>
+}

@@ -1,0 +1,30 @@
+@if (product()) {
+<div class="modal-overlay open" (click)="onOverlayClick($event)">
+  <div class="modal-content">
+    <button class="modal-close" (click)="close()">&times;</button>
+    <div class="modal-body">
+      <div class="modal-img">
+        <img [src]="product()!.imagem" [alt]="product()!.nome">
+      </div>
+      <div class="modal-info">
+        <h2 class="modal-name">{{ product()!.nome }}</h2>
+        <p class="modal-desc">{{ product()!.descricao }}</p>
+        <p class="modal-price">{{ product()!.preco | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</p>
+        @if (product()!.promocaoSemanal && product()!.desconto > 0) {
+          <span class="modal-discount-badge">-{{ product()!.desconto }}% OFF</span>
+        }
+        <p class="modal-installment">{{ product()!.parcelamento }}</p>
+        <div class="modal-qty">
+          <label>Quantidade:</label>
+          <div class="qty-controls">
+            <button class="qty-btn" (click)="decQty()">−</button>
+            <span>{{ qty() }}</span>
+            <button class="qty-btn" (click)="incQty()">+</button>
+          </div>
+        </div>
+        <button class="modal-add-cart" (click)="addToCart()">🛒 Adicionar ao Carrinho</button>
+      </div>
+    </div>
+  </div>
+</div>
+}
