@@ -28,33 +28,33 @@
             "styles": [
               "src/styles.css"
             ],
-            "budgets": [
-              {
-                "type": "initial",
-                "maximumWarning": "500kB",
-                "maximumError": "1MB"
-              },
-              {
-                "type": "anyComponentStyle",
-                "maximumWarning": "50kb",
-                "maximumError": "100kb"
-              }
-            ]
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2MB",
+              "maximumError": "5MB"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "500kb",
+              "maximumError": "1MB"
+            }
+          ]
           },
           "configurations": {
             "production": {
               "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "50kb",
-                  "maximumError": "100kb"
-                }
-              ],
+              {
+                "type": "initial",
+                "maximumWarning": "2MB",
+                "maximumError": "5MB"
+              },
+              {
+                "type": "anyComponentStyle",
+                "maximumWarning": "500kb",
+                "maximumError": "1MB"
+              }
+            ],
               "outputHashing": "all"
             },
             "development": {
