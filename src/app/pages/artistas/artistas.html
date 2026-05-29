@@ -1,0 +1,79 @@
+<div class="artistas-page">
+  <!-- HERO -->
+  <div class="artistas-hero">
+    <div class="hero-bg-shapes">
+      <div class="shape s1"></div>
+      <div class="shape s2"></div>
+    </div>
+    <a routerLink="/" class="back-btn">
+      <i class="ti ti-arrow-left"></i> Voltar
+    </a>
+    <div class="hero-content">
+      <div class="sec-label">Line-up</div>
+      <h1 class="hero-title">Artistas</h1>
+      <p class="hero-sub">Conheça os talentos que estão agitando os palcos e estúdios.</p>
+    </div>
+  </div>
+
+  <div class="artistas-body">
+    
+    <!-- DESTAQUES -->
+    <div class="sec-header">
+      <h2 class="sec-title">Em Destaque</h2>
+    </div>
+    
+    <div class="artistas-grid destaques">
+      @for (artista of destaques; track artista.id) {
+        <div class="artista-card destaque">
+          <div class="artista-img-wrap">
+            <img [src]="artista.imagem" [alt]="artista.nome">
+            <div class="overlay"></div>
+          </div>
+          <div class="artista-info">
+            <div class="artista-meta">
+              <span class="genero">{{ artista.genero }}</span>
+            </div>
+            <h3 class="artista-nome">{{ artista.nome }}</h3>
+            
+            <div class="shows-list">
+              <div class="shows-title">Próximos Shows</div>
+              @for (show of artista.shows; track show.data) {
+                <div class="show-item">
+                  <div class="show-date">
+                    <i class="ti ti-calendar"></i> {{ show.data }}
+                  </div>
+                  <div class="show-loc">
+                    <i class="ti ti-map-pin"></i> {{ show.local }}
+                  </div>
+                </div>
+              }
+            </div>
+            
+            <a routerLink="/ingressos" class="btn-tickets">Ver Ingressos</a>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- OUTROS ARTISTAS -->
+    <div class="sec-header" style="margin-top: 60px;">
+      <h2 class="sec-title">Mais Artistas</h2>
+    </div>
+
+    <div class="artistas-grid outros">
+      @for (artista of outros; track artista.id) {
+        <div class="artista-card-small">
+          <div class="artista-img-small">
+            <img [src]="artista.imagem" [alt]="artista.nome">
+          </div>
+          <div class="artista-info-small">
+            <h3 class="artista-nome-small">{{ artista.nome }}</h3>
+            <span class="genero-small">{{ artista.genero }}</span>
+            <a routerLink="/ingressos" class="link-ingressos">Shows <i class="ti ti-arrow-right"></i></a>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</div>

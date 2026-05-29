@@ -7,6 +7,7 @@ import { ToastComponent } from './components/toast/toast';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, Header, ProductModal, CartSidebar, ToastComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'

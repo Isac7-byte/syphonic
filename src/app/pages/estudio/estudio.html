@@ -1,0 +1,241 @@
+<div class="estudio-page">
+  
+  <!-- HERO SECTION -->
+  <div class="estudio-hero">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <a routerLink="/" class="back-btn">
+        <i class="ti ti-arrow-left"></i> Voltar
+      </a>
+      <div class="sec-label">Symphonic Studios</div>
+      <h1 class="hero-title">Onde a sua música <br><span class="highlight">ganha vida</span></h1>
+      <p class="hero-sub">Equipamentos de ponta, tratamento acústico profissional e o ambiente perfeito para você criar, ensaiar ou gravar sua próxima obra-prima.</p>
+      <button class="btn-primary-large" (click)="scrollParaReserva()">
+        Reservar Horário Agora
+      </button>    
+</div>
+    
+    <div class="hero-image-wrapper">
+      <div class="glass-card stat-card c1">
+        <i class="ti ti-microphone-2"></i>
+        <span>Equipamento Premium</span>
+      </div>
+      <div class="glass-card stat-card c2">
+        <i class="ti ti-clock-24"></i>
+        <span>Aberto 24/7</span>
+      </div>
+      <img src="https://i.pinimg.com/1200x/c2/f7/a4/c2f7a462f48ef53e2003c40134421b19.jpg" alt="Symphonic Studio" class="hero-main-img">
+    </div>
+  </div>
+
+  <!-- COMO FUNCIONA SECTION -->
+  <section class="como-funciona-sec">
+    <div class="sec-header text-center">
+      <div class="sec-label">Processo Simples</div>
+      <h2 class="sec-title">Como Funciona</h2>
+    </div>
+    
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">01</div>
+        <div class="step-icon"><i class="ti ti-calendar-event"></i></div>
+        <h3>Escolha o Horário</h3>
+        <p>Acesse nossa agenda online e veja os horários disponíveis em tempo real. Temos opções avulsas ou pacotes mensais.</p>
+      </div>
+      
+      <div class="step-line"></div>
+      
+      <div class="step-card">
+        <div class="step-number">02</div>
+        <div class="step-icon"><i class="ti ti-music"></i></div>
+        <h3>Reserve a Sala</h3>
+        <p>Selecione a sala que melhor atende à sua necessidade: ensaio de banda, gravação de voz ou produção musical.</p>
+      </div>
+      
+      <div class="step-line"></div>
+      
+      <div class="step-card">
+        <div class="step-number">03</div>
+        <div class="step-icon"><i class="ti ti-player-play"></i></div>
+        <h3>Chegue e Toque</h3>
+        <p>O estúdio estará pronto e climatizado esperando por você. Nossa equipe técnica estará à disposição se precisar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSSAS SALAS -->
+  <section class="salas-sec">
+    <div class="sec-header">
+      <div class="sec-label">Estrutura</div>
+      <h2 class="sec-title">Nossas Salas</h2>
+    </div>
+
+    <div class="salas-list">
+      @for (sala of estudios; track sala.nome) {
+        <div class="sala-card">
+          <div class="sala-img">
+            <img [src]="sala.imagem" [alt]="sala.nome">
+          </div>
+          <div class="sala-info">
+            <h3 class="sala-nome">{{ sala.nome }}</h3>
+            <p class="sala-desc">{{ sala.descricao }}</p>
+            
+            <div class="equipamentos-box">
+              <h4><i class="ti ti-list"></i> Equipamentos Inclusos</h4>
+              <ul>
+                @for (eq of sala.equipamentos; track eq) {
+                  <li>{{ eq }}</li>
+                }
+              </ul>
+            </div>
+            
+<button class="btn-reservar-sala" (click)="selecionarSala(sala)">
+  Agendar {{ sala.nome }}
+</button>          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+<!-- ══ FORMULÁRIO DE RESERVA ══ -->
+<section class="reserva-sec">
+  <div class="sec-header text-center">
+    <div class="sec-label">Reserve agora</div>
+    <h2 class="sec-title">Fazer uma Reserva</h2>
+    <p class="sec-sub">Escolha a sala, a data e o horário. O valor é calculado automaticamente.</p>
+  </div>
+
+  @if (reservaOk()) {
+    <div class="reserva-sucesso">
+      <i class="ti ti-circle-check"></i>
+      <h3>Reserva confirmada!</h3>
+      <p>
+        <strong>{{ salaSelecionada()?.nome }}</strong> —
+        {{ dataSelecionada() }},
+        das {{ horarioInicio() }} às {{ horarioFim() }}
+      </p>
+      <p class="reserva-total">
+        Total: {{ totalPreco() | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
+      </p>
+      <button class="btn-outline-orange" (click)="novaReserva()">Fazer outra reserva</button>
+    </div>
+
+  } @else {
+    <div class="reserva-form-wrap">
+
+      <!-- Step 1: Sala -->
+      <div class="reserva-step">
+        <div class="step-label">
+          <span class="step-num">1</span> Escolha a sala
+        </div>
+        <div class="salas-selector">
+          @for (sala of estudios; track sala.nome) {
+            <div
+              class="sala-option"
+              [class.selected]="salaSelecionada()?.nome === sala.nome"
+              (click)="selecionarSala(sala)">
+              <img [src]="sala.imagem" [alt]="sala.nome">
+              <div class="sala-option-info">
+                <p class="sala-option-nome">{{ sala.nome }}</p>
+                <p class="sala-option-preco">
+                  {{ sala.precoPorHora | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}/hora
+                </p>
+              </div>
+              @if (salaSelecionada()?.nome === sala.nome) {
+                <i class="ti ti-circle-check sala-check"></i>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Step 2: Data e Horário -->
+      @if (salaSelecionada()) {
+        <div class="reserva-step">
+          <div class="step-label">
+            <span class="step-num">2</span> Data e horário
+          </div>
+          <div class="datetime-row">
+            <div class="field-group">
+              <label>Data</label>
+              <input
+                type="date"
+                [min]="dataMinima"
+                [ngModel]="dataSelecionada()"
+                (ngModelChange)="dataSelecionada.set($event)"
+                class="reserva-input">
+            </div>
+            <div class="field-group">
+              <label>Início</label>
+              <select
+                [ngModel]="horarioInicio()"
+                (ngModelChange)="horarioInicio.set($event); horarioFim.set('')"
+                class="reserva-input">
+                <option value="">Selecione</option>
+                @for (h of horarios; track h) {
+                  <option [value]="h">{{ h }}</option>
+                }
+              </select>
+            </div>
+            <div class="field-group">
+              <label>Fim</label>
+              <select
+                [ngModel]="horarioFim()"
+                (ngModelChange)="horarioFim.set($event)"
+                [disabled]="!horarioInicio()"
+                class="reserva-input">
+                <option value="">Selecione</option>
+                @for (h of horariosDisponiveis(); track h) {
+                  <option [value]="h">{{ h }}</option>
+                }
+              </select>
+            </div>
+          </div>
+        </div>
+      }
+
+      <!-- Step 3: Resumo -->
+      @if (totalHoras() > 0) {
+        <div class="reserva-step">
+          <div class="step-label">
+            <span class="step-num">3</span> Resumo da reserva
+          </div>
+          <div class="reserva-resumo">
+            <div class="resumo-row">
+              <span>Sala</span>
+              <span>{{ salaSelecionada()?.nome }}</span>
+            </div>
+            <div class="resumo-row">
+              <span>Data</span>
+              <span>{{ dataSelecionada() }}</span>
+            </div>
+            <div class="resumo-row">
+              <span>Horário</span>
+              <span>{{ horarioInicio() }} às {{ horarioFim() }}</span>
+            </div>
+            <div class="resumo-row">
+              <span>Duração</span>
+              <span>{{ totalHoras() }}h</span>
+            </div>
+            <div class="resumo-row">
+              <span>Valor/hora</span>
+              <span>{{ salaSelecionada()?.precoPorHora | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</span>
+            </div>
+            <div class="resumo-row total">
+              <span>Total</span>
+              <span>{{ totalPreco() | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</span>
+            </div>
+            <button
+              class="btn-primary-full"
+              (click)="confirmarReserva()"
+              [disabled]="!dataSelecionada()">
+              Confirmar Reserva
+            </button>
+          </div>
+        </div>
+      }
+
+    </div>
+  }
+</section>
+</div>

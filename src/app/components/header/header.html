@@ -1,35 +1,64 @@
 <header id="main-header">
-  <div class="top-bar" id="top-bar">
-    <div class="logo" id="logo">
-      <img id="logo-img" src="assets/logo-symphonic.png" alt="Symphonic Logo">
-    </div>
+  <div class="top-bar">
+    <a class="logo" href="/">
+      <div class="logo-icon">♪</div>
+      <span class="logo-text">Sym<span>phonic</span></span>
+    </a>
 
-    <div class="search-container" id="search-container">
-      <input type="text" placeholder="Buscar..." id="search-input">
-      <button class="search-btn" id="search-btn">🔍</button>
-    </div>
+   
 
-    <div class="user-actions" id="user-actions">
-      <div class="action-item" id="atendimento-btn">
-        <span id="atendimento-text">💬 Central de atendimento</span>
-      </div>
-      <div class="action-item" id="login-btn">
-        <span id="login-text">👤 Bem vindo(a)<br>Entrar ou Cadastrar</span>
-      </div>
-      <div class="cart" id="cart-btn" (click)="openCart()" style="cursor:pointer;">
-        <span id="cart-count">🛒 {{ cartService.totalQty() }}</span>
-      </div>
+    <div class="user-actions">
+      <button class="action-btn">
+        <i class="ti ti-headset action-icon"></i>
+        <div class="action-text">
+          <span class="action-label">Precisa de ajuda?</span>
+          <span class="action-main">Atendimento</span>
+        </div>
+      </button>
+
+      <div class="divider"></div>
+
+      @if (authService.currentUser()) {
+        <button class="action-btn">
+          <i class="ti ti-user-check action-icon" style="color: var(--orange)"></i>
+          <div class="action-text">
+            <span class="action-label">Olá,</span>
+            <span class="action-main">{{ authService.currentUser()?.nome }}</span>
+          </div>
+        </button>
+        <button class="action-btn" (click)="authService.logout()" style="padding: 8px; margin-left: -8px;">
+          <i class="ti ti-logout action-icon" style="font-size: 16px; opacity: 0.6"></i>
+        </button>
+      } @else {
+        <button class="action-btn" routerLink="/login">
+          <i class="ti ti-user action-icon"></i>
+          <div class="action-text">
+            <span class="action-label">Bem vindo(a)</span>
+            <span class="action-main">Entrar / Cadastrar</span>
+          </div>
+        </button>
+      }
+
+      <div class="divider"></div>
+
+      <button class="action-btn cart-btn" (click)="openCart()">
+        <i class="ti ti-shopping-cart action-icon"></i>
+        <span class="cart-badge">{{ cartService.totalQty() }}</span>
+      </button>
     </div>
   </div>
 
-  <nav class="bottom-nav" id="nav-categorias">
-    <ul id="nav-lista">
-      <li id="nav-ingresso"><a href="#ingresso-section">Ingressos</a></li>
-      <li id="nav-cordas"><a href="#cordas-section">Cordas</a></li>
-      <li id="nav-audio"><a href="#audio-section">Áudio</a></li>
-      <li id="nav-mesa"><a href="#mesa-section">Mesa</a></li>
-      <li id="nav-fones"><a href="#fones-section">Fones</a></li>
-      <li id="nav-bateria"><a href="#bateria-section">Bateria</a></li>
+  <nav class="bottom-nav">
+    <ul>
+      <li><a routerLink="/produtos" [routerLinkActive]="['active']">Produtos</a></li>
+      <li><a routerLink="/artistas" [routerLinkActive]="['active']">Artistas</a></li>
+      <li><a routerLink="/ingressos" [routerLinkActive]="['active']">Ingressos</a></li>
+      <li><a routerLink="/estudio" [routerLinkActive]="['active']">Estúdio Musical</a></li>
+      <li><a routerLink="/categoria/cordas" [routerLinkActive]="['active']">Cordas</a></li>
+      <li><a routerLink="/categoria/audio" [routerLinkActive]="['active']">Áudio</a></li>
+      <li><a routerLink="/categoria/mesa" [routerLinkActive]="['active']">Mesa de Som</a></li>
+      <li><a routerLink="/categoria/fones" [routerLinkActive]="['active']">Fones</a></li>
+      <li><a routerLink="/categoria/bateria" [routerLinkActive]="['active']">Bateria</a></li>
     </ul>
   </nav>
 </header>

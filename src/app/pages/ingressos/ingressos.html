@@ -1,0 +1,39 @@
+<div class="ingressos-page">
+
+  <!-- HERO -->
+  <div class="ingressos-hero">
+    <div class="hero-bg-shapes">
+      <div class="shape s1"></div>
+      <div class="shape s2"></div>
+    </div>
+    <a routerLink="/" class="back-btn">
+      <i class="ti ti-arrow-left"></i> Voltar
+    </a>
+    <div class="hero-content">
+      <div class="sec-label">Shows e Eventos</div>
+      <h1 class="hero-title">Ingressos</h1>
+      <p class="hero-sub">Garanta seu lugar nos melhores shows e festivais do ano.</p>
+    </div>
+  </div>
+
+  <div class="ingressos-body">
+    @if (loading()) {
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Buscando ingressos disponíveis...</p>
+      </div>
+    } @else if (ingressos().length === 0) {
+      <div class="empty-state">
+        <i class="ti ti-ticket-off"></i>
+        <p>Nenhum ingresso disponível no momento.</p>
+      </div>
+    } @else {
+      <div class="ingressos-grid">
+        @for (produto of ingressos(); track produto.id) {
+          <app-product-card [product]="produto" />
+        }
+      </div>
+    }
+  </div>
+
+</div>

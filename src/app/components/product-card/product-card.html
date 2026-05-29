@@ -1,14 +1,26 @@
 <div class="product-card" (click)="openModal()">
-  <div class="image-container">
+  <div class="img-wrap">
     @if (product.promocaoSemanal && product.desconto > 0) {
-      <span class="discount-badge">-{{ product.desconto }}%</span>
+      <span class="badge">-{{ product.desconto }}%</span>
     }
     <img [src]="product.imagem" [alt]="product.nome" loading="lazy">
   </div>
-  <div class="product-info">
-    <p class="product-name">{{ product.nome }}</p>
-    <p class="product-price">{{ product.preco | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</p>
-    <p class="product-installments">{{ product.parcelamento }}</p>
-    <button class="buy-btn" (click)="addToCart($event)">comprar</button>
+
+  @if (product.promocaoSemanal && product.desconto > 0) {
+    <div class="promo-strip">
+      <i class="ti ti-flame" aria-hidden="true"></i> Promoção da semana
+    </div>
+  }
+
+  <div class="card-body">
+    <p class="card-name">{{ product.nome }}</p>
+    <p class="card-price">{{ product.preco | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</p>
+    <p class="card-installments">{{ product.parcelamento }}</p>
+    <div class="card-footer">
+      <button class="btn-buy" (click)="addToCart($event)">Comprar</button>
+      <button class="btn-cart" (click)="addToCart($event)" aria-label="Adicionar ao carrinho">
+        <i class="ti ti-shopping-cart-plus"></i>
+      </button>
+    </div>
   </div>
 </div>

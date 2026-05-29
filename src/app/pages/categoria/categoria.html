@@ -1,0 +1,22 @@
+<div class="cat-page">
+  <div class="cat-page-header">
+    <a routerLink="/" class="back-btn">
+      <i class="ti ti-arrow-left"></i> Voltar
+    </a>
+    <div class="sec-label">{{ config()?.sublabel }}</div>
+    <h1 class="sec-title" style="font-size: 36px;">{{ config()?.label }}</h1>
+  </div>
+
+  @if (produtos().length === 0) {
+    <div class="cat-empty">
+      <i class="ti ti-music-off"></i>
+      <p>Nenhum produto encontrado nesta categoria.</p>
+    </div>
+  } @else {
+    <div class="cat-grid">
+      @for (produto of produtos(); track produto.id) {
+        <app-product-card [product]="produto" />
+      }
+    </div>
+  }
+</div>

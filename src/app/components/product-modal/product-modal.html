@@ -1,28 +1,85 @@
 @if (product()) {
-<div class="modal-overlay open" (click)="onOverlayClick($event)">
+<div class="modal-overlay" (click)="onOverlayClick($event)">
   <div class="modal-content">
-    <button class="modal-close" (click)="close()">&times;</button>
-    <div class="modal-body">
-      <div class="modal-img">
+    <button class="modal-close" (click)="close()" aria-label="Fechar">
+      <i class="ti ti-x"></i>
+    </button>
+
+    <div class="modal-top">
+      <div class="modal-img-col">
+        @if (product()!.promocaoSemanal && product()!.desconto > 0) {
+          <span class="promo-tag">-{{ product()!.desconto }}% OFF</span>
+        }
         <img [src]="product()!.imagem" [alt]="product()!.nome">
       </div>
-      <div class="modal-info">
+
+      <div class="modal-info-col">
+        <p class="modal-category">{{ product()!.categoria }}</p>
         <h2 class="modal-name">{{ product()!.nome }}</h2>
+
+        <div class="modal-rating">
+          <span class="stars">★★★★★</span>
+          <span class="rating-count">4.9 (128 avaliações)</span>
+        </div>
+
+        <div class="modal-divider"></div>
+
+        <div class="modal-price-block">
+          @if (product()!.promocaoSemanal && product()!.desconto > 0) {
+            <p class="modal-price-original">
+              {{ product()!.preco / (1 - product()!.desconto / 100) | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
+            </p>
+          }
+          <p class="modal-price-main">
+            {{ product()!.preco | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
+          </p>
+          <p class="modal-price-installments">{{ product()!.parcelamento }}</p>
+        </div>
+
         <p class="modal-desc">{{ product()!.descricao }}</p>
-        <p class="modal-price">{{ product()!.preco | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</p>
-        @if (product()!.promocaoSemanal && product()!.desconto > 0) {
-          <span class="modal-discount-badge">-{{ product()!.desconto }}% OFF</span>
-        }
-        <p class="modal-installment">{{ product()!.parcelamento }}</p>
-        <div class="modal-qty">
-          <label>Quantidade:</label>
+
+        <div class="modal-qty-row">
+          <span class="qty-label">Quantidade</span>
           <div class="qty-controls">
             <button class="qty-btn" (click)="decQty()">−</button>
-            <span>{{ qty() }}</span>
+            <span class="qty-val">{{ qty() }}</span>
             <button class="qty-btn" (click)="incQty()">+</button>
           </div>
         </div>
-        <button class="modal-add-cart" (click)="addToCart()">🛒 Adicionar ao Carrinho</button>
+
+        <div class="modal-actions">
+          <button class="btn-add-cart" (click)="addToCart()">
+            <i class="ti ti-shopping-cart-plus"></i>
+            Adicionar ao carrinho
+          </button>
+          <button class="btn-wishlist" aria-label="Favoritar">
+            <i class="ti ti-heart"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-bottom">
+      <div class="info-pill">
+        <i class="ti ti-truck" aria-hidden="true"></i>
+        <div class="info-pill-text">
+          <span class="info-pill-main">Frete grátis</span>
+          <span class="info-pill-sub">para todo Brasil</span>
+        </div>
+      </div>
+      <div class="info-pill">
+        <i class="ti ti-refresh" aria-hidden="true"></i>
+        <div class="info-pill-text">
+          <span class="info-pill-main">30 dias</span>
+          <span class="info-pill-sub">para devolução</span>
+        </div>
+      </div>
+      <div class="info-pill">
+        <i class="ti ti-shield-check" aria-hidden="true"></i>
+        <div class="info-pill-text">
+          <span class="info-pill-main">Garantia</span>
+          <span class="info-pill-sub">12 meses</span>
+        </div>
       </div>
     </div>
   </div>

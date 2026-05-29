@@ -2,72 +2,86 @@
 
 <div class="cart-sidebar" [class.open]="sidebarService.isOpen()">
   <div class="cart-header">
-    <h2>🛒 Meu Carrinho</h2>
-    <button class="cart-close" (click)="close()">&times;</button>
+    <div class="cart-header-left">
+      <i class="ti ti-shopping-cart"></i>
+      <h2>Meu carrinho</h2>
+    </div>
+    <button class="cart-close" (click)="close()" aria-label="Fechar">
+      <i class="ti ti-x"></i>
+    </button>
   </div>
 
   @if (cartService.items().length === 0) {
-    <div class="cart-items">
-      <p class="cart-empty">Seu carrinho está vazio 🛒</p>
+    <div class="cart-empty-state">
+      <i class="ti ti-shopping-cart-off"></i>
+      <p>Seu carrinho está vazio</p>
     </div>
   } @else {
     <div class="cart-items">
-      @for (item of cartService.items(); track item.id; let idx = $index) {
+      @for (item of cartService.items(); track item.id) {
         <div class="cart-item">
           <img [src]="item.img" [alt]="item.name" class="cart-item-img">
           <div class="cart-item-info">
             <p class="cart-item-name">{{ item.name }}</p>
-            <p class="cart-item-price">{{ item.price | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</p>
-            <div class="cart-item-qty-row">
-              <button class="cart-qty-btn" (click)="updateQty(item.id, -1)">−</button>
+            <p class="cart-item-price">{{ item.price | currency:'BRL':'symbol':'1.2-2':'pt-BR' }} cada</p>
+            <div class="cart-qty-row">
+              <button class="cart-qty-btn" (click)="updateQty(item.id, -1)" aria-label="Diminuir">−</button>
               <span class="cart-qty-val">{{ item.qty }}</span>
-              <button class="cart-qty-btn" (click)="updateQty(item.id, +1)">+</button>
+              <button class="cart-qty-btn" (click)="updateQty(item.id, +1)" aria-label="Aumentar">+</button>
             </div>
             <p class="cart-item-subtotal">{{ item.price * item.qty | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</p>
           </div>
-          <button class="cart-item-remove" (click)="removeItem(item.id)" title="Remover">✕</button>
+          <button class="cart-item-remove" (click)="removeItem(item.id)" aria-label="Remover">
+            <i class="ti ti-x"></i>
+          </button>
         </div>
       }
     </div>
 
     <div class="cart-footer">
       <div class="cart-total-row">
-        <span>Total de itens:</span>
-        <span>{{ cartService.totalQty() }}</span>
+        <span class="total-label">Total de itens</span>
+        <span class="total-qty">{{ cartService.totalQty() }} itens</span>
       </div>
-      <div class="cart-total-row cart-total-price">
-        <span>Total:</span>
-        <span>{{ cartService.totalPrice() | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</span>
+      <div class="cart-total-row">
+        <span class="total-price-label">Total</span>
+        <span class="total-price-val">{{ cartService.totalPrice() | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</span>
       </div>
-      <button class="cart-checkout-btn" (click)="checkout()">Finalizar Compra</button>
-      <button class="cart-clear-btn" (click)="clearCart()">Limpar Carrinho</button>
+      <button class="btn-checkout" (click)="checkout()">Finalizar compra</button>
+      <button class="btn-clear" (click)="clearCart()">Limpar carrinho</button>
     </div>
   }
 </div>
 
-<!-- Modal de checkout -->
 @if (checkoutOpen) {
-<div class="modal-overlay open" (click)="onCheckoutOverlay($event)">
-  <div class="modal-content checkout-content">
-    <button class="modal-close" (click)="closeCheckout()">&times;</button>
-    <div class="checkout-body">
-      <div class="checkout-icon">✅</div>
-      <h2>Resumo do Pedido</h2>
-      <div class="checkout-items-list">
-        @for (item of checkoutSnapshot; track item.id) {
-          <div class="checkout-item-row">
-            <span class="checkout-item-name">{{ item.name }}</span>
-            <span class="checkout-item-detail">{{ item.qty }}x {{ item.price | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</span>
-            <span class="checkout-item-sub">{{ item.price * item.qty | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</span>
-          </div>
-        }
+  <div class="modal-overlay" (click)="onCheckoutOverlay($event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Resumo do pedido</h2>
+        <button class="cart-close" (click)="closeCheckout()" aria-label="Fechar">
+          <i class="ti ti-x"></i>
+        </button>
       </div>
-      <div class="checkout-total">
-        <span>Total Final:</span>
-        <span>{{ checkoutTotal | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</span>
+      <div class="modal-body">
+        <div class="order-badge">
+          <i class="ti ti-circle-check"></i>
+          <span>Revise seu pedido antes de confirmar</span>
+        </div>
+        <div class="order-list">
+          @for (item of checkoutSnapshot; track item.id) {
+            <div class="order-row">
+              <span class="order-name">{{ item.name }}</span>
+              <span class="order-detail">{{ item.qty }}x {{ item.price | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</span>
+              <span class="order-sub">{{ item.price * item.qty | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</span>
+            </div>
+          }
+        </div>
+        <div class="order-total">
+          <span>Total final</span>
+          <span class="order-total-val">{{ checkoutTotal | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</span>
+        </div>
+        <button class="btn-confirm" (click)="confirmPurchase()">Confirmar compra</button>
       </div>
-      <button class="modal-add-cart checkout-confirm" (click)="confirmPurchase()">Confirmar Compra</button>
     </div>
   </div>
-</div>
 }

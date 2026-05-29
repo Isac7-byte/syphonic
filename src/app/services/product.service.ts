@@ -16,6 +16,7 @@ export interface Product {
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
+
   private http = inject(HttpClient);
   private apiUrl = 'http://localhost:3000';
 
